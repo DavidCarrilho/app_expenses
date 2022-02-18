@@ -9,11 +9,25 @@ class AppWidget extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        body: Center(
-          child: Text(
-            'Initial Version',
-            style: TextStyle(fontSize: 28.0),
-          ),
+        appBar: AppBar(
+          title: Text('Despesas Pessoais'),
+          centerTitle: true,
+        ),
+        body: Column(
+          children: <Widget>[
+            Container(
+              width: double.infinity,
+              child: Card(
+                child: Text('Gráfico'),
+                elevation: 5.0,
+                color: Colors.blue,
+              ),
+            ),
+            Card(
+              child: Text('Lista de Transações'),
+              elevation: 5.0,
+            )
+          ],
         ),
       ),
     );
