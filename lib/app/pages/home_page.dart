@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      tr.value.toString(),
+                      'R\$ ${tr.value.toStringAsFixed(2)}',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20.0,
@@ -70,7 +70,7 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        tr.date.toString(),
+                        '${tr.date.day}/${tr.date.month}/${tr.date.year}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16.0,
