@@ -1,5 +1,6 @@
 import 'package:expenses/app/models/export.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class HomePage extends StatelessWidget {
   final List<Transaction> _trasactions = [
@@ -70,7 +71,8 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '${tr.date.day}/${tr.date.month}/${tr.date.year}',
+                        // '${tr.date.day}/${tr.date.month}/${tr.date.year}',
+                        DateFormat('d/MM/y').format(tr.date),
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16.0,
