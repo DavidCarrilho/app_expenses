@@ -1,8 +1,12 @@
 import 'package:expenses/app/models/export.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'dart:developer' as developer;
 
 class HomePage extends StatelessWidget {
+  final titleController = TextEditingController();
+  final valueController = TextEditingController();
+
   final List<Transaction> _trasactions = [
     Transaction(
       id: 't1',
@@ -95,31 +99,25 @@ class HomePage extends StatelessWidget {
                 children: <Widget>[
                   TextField(
                     decoration: InputDecoration(labelText: 'Titulo'),
+                    controller: titleController,
                   ),
                   TextField(
                     decoration: InputDecoration(
                       labelText: 'Valor (Rz\$)',
                     ),
+                    controller: valueController,
                   ),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.end,
-                  //   children: <Widget>[
-                  //     FlatButton(
-                  //       onPressed: () {},
-                  //       color: Colors.purple,
-                  //       textColor: Colors.white,
-                  //       child: Text('Nova Transação'),
-                  //     ),
-                  //   ],
-                  // )
                   Align(
                     alignment: Alignment.bottomRight,
-                    child:   FlatButton(
-                        onPressed: () {},
-                        color: Colors.purple,
-                        textColor: Colors.white,
-                        child: Text('Nova Transação'),
-                      ),
+                    child: FlatButton(
+                      onPressed: () {
+                        developer.log(titleController.text);
+                        developer.log(valueController.text);
+                      },
+                      color: Colors.purple,
+                      textColor: Colors.white,
+                      child: Text('Nova Transação'),
+                    ),
                   )
                 ],
               ),
