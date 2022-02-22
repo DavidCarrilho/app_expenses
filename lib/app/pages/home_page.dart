@@ -26,7 +26,6 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Card(
@@ -35,55 +34,96 @@ class HomePage extends StatelessWidget {
             color: Colors.blue,
           ),
           Column(
-            children: _trasactions.map((tr) {
-              return Card(
+            children: _trasactions.map(
+              (tr) {
+                return Card(
                   child: Row(
+                    children: <Widget>[
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          horizontal: 15.0,
+                          vertical: 10.0,
+                        ),
+                        padding: EdgeInsets.all(10.0),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.purple,
+                            width: 2.0,
+                          ),
+                        ),
+                        child: Text(
+                          'R\$ ${tr.value.toStringAsFixed(2)}',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0,
+                            color: Colors.purple,
+                          ),
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            tr.title,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          Text(
+                            // '${tr.date.day}/${tr.date.month}/${tr.date.year}',
+                            DateFormat('d/MM/y').format(tr.date),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16.0,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                );
+              },
+            ).toList(),
+          ),
+          Card(
+            elevation: 5.0,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
                 children: <Widget>[
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                      horizontal: 15.0,
-                      vertical: 10.0,
-                    ),
-                    padding: EdgeInsets.all(10.0),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.purple,
-                        width: 2.0,
-                      ),
-                    ),
-                    child: Text(
-                      'R\$ ${tr.value.toStringAsFixed(2)}',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: Colors.purple,
-                      ),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Titulo'),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Valor (Rz\$)',
                     ),
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        tr.title,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16.0,
-                        ),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.end,
+                  //   children: <Widget>[
+                  //     FlatButton(
+                  //       onPressed: () {},
+                  //       color: Colors.purple,
+                  //       textColor: Colors.white,
+                  //       child: Text('Nova Transação'),
+                  //     ),
+                  //   ],
+                  // )
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child:   FlatButton(
+                        onPressed: () {},
+                        color: Colors.purple,
+                        textColor: Colors.white,
+                        child: Text('Nova Transação'),
                       ),
-                      Text(
-                        // '${tr.date.day}/${tr.date.month}/${tr.date.year}',
-                        DateFormat('d/MM/y').format(tr.date),
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16.0,
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ],
                   )
                 ],
-              ));
-            }).toList(),
+              ),
+            ),
           )
         ],
       ),
