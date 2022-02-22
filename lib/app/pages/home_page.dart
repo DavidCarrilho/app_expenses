@@ -1,12 +1,9 @@
 import 'package:expenses/app/components/trabsaction_list.dart';
+import 'package:expenses/app/components/transactions_form.dart';
 import 'package:expenses/app/models/export.dart';
 import 'package:flutter/material.dart';
-import 'dart:developer' as developer;
 
 class HomePage extends StatelessWidget {
-  final titleController = TextEditingController();
-  final valueController = TextEditingController();
-
   final List<Transaction> _transactions = [
     Transaction(
       id: 't1',
@@ -37,39 +34,10 @@ class HomePage extends StatelessWidget {
             elevation: 5.0,
             color: Colors.blue,
           ),
-          TransactionList(transactions: _transactions,),
-          Card(
-            elevation: 5.0,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                children: <Widget>[
-                  TextField(
-                    decoration: InputDecoration(labelText: 'Titulo'),
-                    controller: titleController,
-                  ),
-                  TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Valor (Rz\$)',
-                    ),
-                    controller: valueController,
-                  ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: FlatButton(
-                      onPressed: () {
-                        developer.log(titleController.text);
-                        developer.log(valueController.text);
-                      },
-                      color: Colors.purple,
-                      textColor: Colors.white,
-                      child: Text('Nova Transação'),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          )
+          TransactionList(
+            transactions: _transactions,
+          ),
+          TransactionForom()
         ],
       ),
     );
