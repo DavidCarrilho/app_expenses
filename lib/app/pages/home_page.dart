@@ -1,13 +1,13 @@
+import 'package:expenses/app/components/trabsaction_list.dart';
 import 'package:expenses/app/models/export.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'dart:developer' as developer;
 
 class HomePage extends StatelessWidget {
   final titleController = TextEditingController();
   final valueController = TextEditingController();
 
-  final List<Transaction> _trasactions = [
+  final List<Transaction> _transactions = [
     Transaction(
       id: 't1',
       title: 'Nova Camisa',
@@ -37,60 +37,7 @@ class HomePage extends StatelessWidget {
             elevation: 5.0,
             color: Colors.blue,
           ),
-          Column(
-            children: _trasactions.map(
-              (tr) {
-                return Card(
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 15.0,
-                          vertical: 10.0,
-                        ),
-                        padding: EdgeInsets.all(10.0),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.purple,
-                            width: 2.0,
-                          ),
-                        ),
-                        child: Text(
-                          'R\$ ${tr.value.toStringAsFixed(2)}',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20.0,
-                            color: Colors.purple,
-                          ),
-                        ),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            tr.title,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16.0,
-                            ),
-                          ),
-                          Text(
-                            // '${tr.date.day}/${tr.date.month}/${tr.date.year}',
-                            DateFormat('d/MM/y').format(tr.date),
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16.0,
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                );
-              },
-            ).toList(),
-          ),
+          TransactionList(transactions: _transactions,),
           Card(
             elevation: 5.0,
             child: Padding(
