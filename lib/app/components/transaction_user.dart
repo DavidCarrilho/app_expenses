@@ -6,8 +6,6 @@ import 'package:expenses/app/models/models.dart';
 import 'package:flutter/material.dart';
 
 class TransactionUser extends StatefulWidget {
-  const TransactionUser({Key key}) : super(key: key);
-
   @override
   _TransactionUserState createState() => _TransactionUserState();
 }
@@ -28,15 +26,16 @@ class _TransactionUserState extends State<TransactionUser> {
     )
   ];
 
-  _addTransaction({String title, double value}) {
+  _addTransaction(String title, double value) {
     final newTransaction = Transaction(
       id: Random().nextDouble().toString(),
       title: title,
       value: value,
       date: DateTime.now(),
     );
+
     setState(() {
-      _transactions.add((newTransaction));
+      _transactions.add(newTransaction);
     });
   }
 
@@ -44,8 +43,8 @@ class _TransactionUserState extends State<TransactionUser> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        TransactionList(transactions: _transactions),
-        TransactionForm(),
+        TransactionList(transactions: _transactions,),
+        TransactionForm(onSubmit: _addTransaction,),
       ],
     );
   }

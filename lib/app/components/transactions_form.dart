@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'dart:developer' as developer;
 
 class TransactionForm extends StatelessWidget {
   final titleController = TextEditingController();
   final valueController = TextEditingController();
+  final void Function(String, double) onSubmit;
+
+  TransactionForm({this.onSubmit});
+
   Widget build(BuildContext context) {
     return Card(
       elevation: 5.0,
@@ -25,8 +28,9 @@ class TransactionForm extends StatelessWidget {
               alignment: Alignment.bottomRight,
               child: FlatButton(
                 onPressed: () {
-                  developer.log(titleController.text);
-                  developer.log(valueController.text);
+                  final title = titleController.text;
+                  final value = double.tryParse(valueController.text) ?? 0.0;
+                  onSubmit(title, value);
                 },
                 color: Colors.purple,
                 textColor: Colors.white,
