@@ -9,16 +9,20 @@ class HomePage extends StatelessWidget {
         title: Text('Despesas Pessoais'),
         centerTitle: true,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Card(
-            child: Text('Gráfico'),
-            elevation: 5.0,
-            color: Colors.blue,
-          ),
-          TransactionUser(),
-        ],
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Card(
+              child: Text('Gráfico'),
+              elevation: 5.0,
+              color: Colors.blue,
+            ),
+            TransactionUser(),
+            TransactionUser(),
+          ],
+        ),
       ),
     );
   }
