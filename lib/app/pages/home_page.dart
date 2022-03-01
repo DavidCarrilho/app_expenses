@@ -20,7 +20,6 @@ class HomePage extends StatelessWidget {
               color: Colors.blue,
             ),
             TransactionUser(),
-            TransactionUser(),
           ],
         ),
       ),
