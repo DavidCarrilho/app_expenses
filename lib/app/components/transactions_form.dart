@@ -33,7 +33,7 @@ class TransactionForm extends StatelessWidget {
               keyboardType: TextInputType.numberWithOptions(decimal: true),
               onSubmitted: (_)=> _submitForm(),
               decoration: InputDecoration(
-                labelText: 'Valor (Rz\$)',
+                labelText: 'Valor (R\$)',
               ),
             ),
             Align(
