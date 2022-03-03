@@ -26,7 +26,7 @@ class _TransactionFormState extends State<TransactionForm> {
     return Card(
       elevation: 5.0,
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(18.0),
         child: Column(
           children: <Widget>[
             TextField(

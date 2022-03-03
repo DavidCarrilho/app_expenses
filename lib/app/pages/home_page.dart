@@ -27,10 +27,14 @@ class _HomePageState extends State<HomePage> {
 
   _openTransactionFormModal(BuildContext context) {
     showModalBottomSheet(
+      backgroundColor: Colors.transparent,
       context: context,
       builder: (_) {
-        return TransactionForm(
-          onSubmit: _addTransaction,
+        return Container(
+          margin: EdgeInsets.all(8.0),
+          child: TransactionForm(
+            onSubmit: _addTransaction,
+          ),
         );
       },
     );
@@ -47,6 +51,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _transactions.add(newTransaction);
     });
+    Navigator.of(context).pop();
   }
 
   @override
