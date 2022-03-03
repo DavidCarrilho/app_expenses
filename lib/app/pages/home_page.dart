@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
       context: context,
       builder: (_) {
         return TransactionForm(
-          onSubmit: null,
+          onSubmit: _addTransaction,
         );
       },
     );
