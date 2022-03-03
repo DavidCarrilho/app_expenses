@@ -31,13 +31,13 @@ class _TransactionFormState extends State<TransactionForm> {
           children: <Widget>[
             TextField(
               decoration: InputDecoration(labelText: 'Titulo'),
-              onSubmitted: (_)=> _submitForm(),
+              onSubmitted: (_) => _submitForm(),
               controller: titleController,
             ),
             TextField(
               controller: valueController,
               keyboardType: TextInputType.numberWithOptions(decimal: true),
-              onSubmitted: (_)=> _submitForm(),
+              onSubmitted: (_) => _submitForm(),
               decoration: InputDecoration(
                 labelText: 'Valor (R\$)',
               ),
@@ -46,7 +46,7 @@ class _TransactionFormState extends State<TransactionForm> {
               alignment: Alignment.bottomRight,
               child: FlatButton(
                 onPressed: _submitForm,
-                color: Colors.purple,
+                color: Theme.of(context).primaryColor,
                 textColor: Colors.white,
                 child: Text('Nova Transação'),
               ),
